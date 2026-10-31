@@ -1,0 +1,4965 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#23005b" name="theme-color"/>
+<meta content="light dark" name="color-scheme"/>
+<link href="assets/icon.png" rel="icon" type="image/png"/>
+<link href="assets/icon.png" rel="apple-touch-icon"/>
+<meta content="Henufy provides website development, custom software, UI/UX design, API integration, cloud and DevOps services for businesses. Discuss your project with our team in Tamil Nadu, India." name="description"/>
+<meta content="Henufy, website development, web application development, custom software development, UI UX design, API integration, cloud services, DevOps, Tamil Nadu" name="keywords"/>
+<meta content="Henufy" name="author"/>
+<meta content="Henufy | Website &amp; Software Development Services" property="og:title"/>
+<meta content="Website development, custom software, UI/UX design, API integration, cloud and DevOps services for businesses." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/logo.png" property="og:image"/>
+<title>Henufy | Website &amp; Software Development Services</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+
+        :root {
+
+            --gold: #ff7900;
+            --gold-light: #ffb347;
+            --gold-dark: #5b21b6;
+
+            --black: #050505;
+            --black-soft: #0b0b0b;
+            --dark: #111111;
+            --dark-2: #171717;
+
+            --white: #ffffff;
+            --white-soft: #f7f7f5;
+
+            --text: #171717;
+            --muted: #737373;
+
+            --border: rgba(0, 0, 0, .09);
+            --dark-border: rgba(255, 255, 255, .10);
+
+            --radius-sm: 10px;
+            --radius: 20px;
+            --radius-lg: 30px;
+
+            --container: 1200px;
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, .12);
+
+            --transition:
+                all .35s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        [data-theme="dark"] {
+
+            --white: #080808;
+            --white-soft: #111111;
+
+            --text: #ffffff;
+            --muted: #a3a3a3;
+
+            --border: rgba(255, 255, 255, .09);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background:
+                radial-gradient(circle at 10% 10%,
+                    rgba(255, 121, 0, .08),
+                    transparent 28%),
+                var(--white-soft);
+
+            color: var(--text);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            transition: var(--transition);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+
+
+        /* =========================================================
+           SCROLL PROGRESS
+        ========================================================= */
+
+        .progress-bar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 4px;
+
+            background:
+                linear-gradient(90deg,
+                    var(--gold-dark),
+                    var(--gold-light),
+                    var(--gold));
+
+            z-index: 9999;
+        }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+
+            width: min(calc(100% - 40px),
+                    var(--container));
+
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            border-bottom:
+                1px solid transparent;
+
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+
+            background:
+                rgba(5, 5, 5, .88);
+
+            backdrop-filter:
+                blur(20px);
+
+            border-color:
+                rgba(255, 255, 255, .08);
+        }
+
+        .nav {
+
+            height: 82px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background:
+                linear-gradient(145deg, #0f172a, #111827);
+            border: 1px solid rgba(255, 179, 71, .45);
+            box-shadow:
+                0 0 0 1px rgba(255, 179, 71, .08),
+                0 0 32px rgba(255, 121, 0, .22),
+                inset 0 0 18px rgba(255, 121, 0, .08);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-mark {
+            transform: translateY(-2px) rotate(-2deg);
+            border-color: var(--gold-light);
+            box-shadow:
+                0 0 0 1px rgba(255, 179, 71, .14),
+                0 0 42px rgba(255, 121, 0, .34),
+                inset 0 0 22px rgba(255, 121, 0, .12);
+        }
+
+        .logo-mark::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, .18);
+
+            top: -40px;
+            left: -40px;
+        }
+
+        .logo-mark svg {
+
+            width: 28px;
+            height: 28px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+
+            color:
+                rgba(255, 255, 255, .72);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            position: relative;
+
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           NAV ACTIONS
+        ========================================================= */
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .icon-btn {
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 255, 255, .12);
+
+            background:
+                rgba(255, 255, 255, .04);
+
+            color: #fff;
+
+            display: grid;
+
+            place-items: center;
+
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+
+            background: var(--gold);
+
+            color: #000;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            min-height: 48px;
+
+            padding:
+                0 22px;
+
+            border-radius:
+                999px;
+
+            border:
+                1px solid transparent;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .btn-gold {
+
+            background:
+                linear-gradient(135deg,
+                    var(--gold-light),
+                    var(--gold));
+
+            color: #050505;
+
+            box-shadow:
+                0 12px 35px rgba(255, 121, 0, .18);
+        }
+
+        .btn-gold:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 45px rgba(245, 184, 0, .30);
+        }
+
+        .btn-outline {
+
+            border-color:
+                rgba(255, 255, 255, .16);
+
+            color: #fff;
+
+            background:
+                rgba(255, 255, 255, .03);
+        }
+
+        .btn-outline:hover {
+
+            border-color:
+                var(--gold);
+
+            color:
+                var(--gold);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .menu-btn {
+
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 0;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 255, 255, .06);
+
+            color: #fff;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            min-height:
+                100vh;
+
+            padding:
+                160px 0 100px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 80% 20%,
+                    rgba(255, 121, 0, .15),
+                    transparent 32%),
+                #050505;
+
+            color: #fff;
+        }
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 121, 0, .12);
+
+            right: -260px;
+            top: 120px;
+
+            animation:
+                rotateOrb 25s linear infinite;
+        }
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 121, 0, .08);
+
+            filter: blur(70px);
+
+            left: -120px;
+            bottom: 0;
+        }
+
+        @keyframes rotateOrb {
+
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr .95fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                8px 13px;
+
+            border:
+                1px solid rgba(255, 121, 0, .25);
+
+            background:
+                rgba(255, 121, 0, .07);
+
+            border-radius:
+                999px;
+
+            color:
+                var(--gold-light);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing:
+                .08em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-dot {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--gold);
+
+            box-shadow:
+                0 0 15px var(--gold);
+
+            animation:
+                pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.6);
+                opacity: .55;
+            }
+        }
+
+        .hero h1 {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(48px, 6vw, 86px);
+
+            line-height:
+                .98;
+
+            letter-spacing:
+                -.055em;
+
+            max-width:
+                850px;
+
+            margin-bottom:
+                26px;
+        }
+
+        .hero h1 span {
+
+            background:
+                linear-gradient(100deg,
+                    var(--gold-light),
+                    var(--gold),
+                    #fff0a8);
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+        }
+
+        .hero-description {
+
+            max-width:
+                640px;
+
+            color:
+                #a8a8a8;
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                34px;
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        /* =========================================================
+           HERO VISUAL
+        ========================================================= */
+
+        .hero-visual {
+
+            position: relative;
+
+            min-height:
+                520px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+        }
+
+        .hero-card {
+
+            width:
+                min(100%, 470px);
+
+            border:
+                1px solid rgba(255, 255, 255, .11);
+
+            border-radius:
+                28px;
+
+            background:
+                linear-gradient(145deg,
+                    rgba(255, 255, 255, .09),
+                    rgba(255, 255, 255, .025));
+
+            backdrop-filter:
+                blur(20px);
+
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, .45);
+
+            padding:
+                24px;
+
+            transform:
+                perspective(1000px) rotateY(-8deg) rotateX(5deg);
+
+            transition:
+                transform .5s ease;
+        }
+
+        .hero-visual:hover .hero-card {
+
+            transform:
+                perspective(1000px) rotateY(0) rotateX(0) translateY(-8px);
+        }
+
+        .dashboard-top {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .window-dots {
+
+            display: flex;
+
+            gap: 6px;
+        }
+
+        .window-dots i {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                #666;
+        }
+
+        .dashboard-title {
+
+            font-size:
+                12px;
+
+            color:
+                #aaa;
+        }
+
+        .dashboard-main {
+
+            border-radius:
+                18px;
+
+            background:
+                #0c0c0c;
+
+            padding:
+                20px;
+
+            border:
+                1px solid rgba(255, 255, 255, .06);
+        }
+
+        .dashboard-label {
+
+            font-size:
+                11px;
+
+            color:
+                #8b8b8b;
+
+            margin-bottom:
+                8px;
+        }
+
+        .dashboard-value {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                38px;
+
+            font-weight:
+                700;
+
+            color:
+                #fff;
+
+            margin-bottom:
+                25px;
+        }
+
+        .chart {
+
+            height:
+                170px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            gap:
+                9px;
+
+            padding-top:
+                20px;
+        }
+
+        .bar {
+
+            flex:
+                1;
+
+            border-radius:
+                8px 8px 2px 2px;
+
+            background:
+                linear-gradient(to top,
+                    var(--gold-dark),
+                    var(--gold-light));
+
+            animation:
+                growBar 1.4s ease both;
+        }
+
+        .bar:nth-child(1) {
+            height: 35%;
+        }
+
+        .bar:nth-child(2) {
+            height: 50%;
+        }
+
+        .bar:nth-child(3) {
+            height: 42%;
+        }
+
+        .bar:nth-child(4) {
+            height: 68%;
+        }
+
+        .bar:nth-child(5) {
+            height: 62%;
+        }
+
+        .bar:nth-child(6) {
+            height: 80%;
+        }
+
+        .bar:nth-child(7) {
+            height: 96%;
+        }
+
+        @keyframes growBar {
+
+            from {
+                transform:
+                    scaleY(0);
+                transform-origin:
+                    bottom;
+            }
+
+            to {
+                transform:
+                    scaleY(1);
+            }
+        }
+
+
+        /* FLOATING CARDS */
+
+        .float-card {
+
+            position: absolute;
+
+            padding:
+                14px 16px;
+
+            border:
+                1px solid rgba(255, 255, 255, .12);
+
+            background:
+                rgba(15, 15, 15, .88);
+
+            backdrop-filter:
+                blur(15px);
+
+            border-radius:
+                16px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .3);
+
+            animation:
+                floating 4s ease-in-out infinite;
+        }
+
+        .float-card strong {
+
+            display:
+                block;
+
+            font-size:
+                18px;
+
+            color:
+                var(--gold);
+        }
+
+        .float-card small {
+
+            color:
+                #999;
+
+            font-size:
+                10px;
+        }
+
+        .float-one {
+
+            top:
+                55px;
+
+            right:
+                -10px;
+        }
+
+        .float-two {
+
+            bottom:
+                55px;
+
+            left:
+                -35px;
+
+            animation-delay:
+                -2s;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+        }
+
+
+        /* =========================================================
+           TRUST BAR
+        ========================================================= */
+
+        .trust {
+
+            padding:
+                24px 0;
+
+            background:
+                #090909;
+
+            border-top:
+                1px solid rgba(255, 255, 255, .06);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, .06);
+        }
+
+        .trust-inner {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                25px;
+
+            flex-wrap:
+                wrap;
+        }
+
+        .trust-label {
+
+            color:
+                #777;
+
+            font-size:
+                11px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .15em;
+
+            font-weight:
+                700;
+        }
+
+        .tech-list {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+        .tech-pill {
+
+            padding:
+                8px 13px;
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+
+            border-radius:
+                999px;
+
+            color:
+                #bdbdbd;
+
+            font-size:
+                11px;
+
+            background:
+                rgba(255, 255, 255, .025);
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding:
+                110px 0;
+        }
+
+        .section-head {
+
+            max-width:
+                720px;
+
+            margin-bottom:
+                55px;
+        }
+
+        .section-label {
+
+            display:
+                inline-block;
+
+            color:
+                var(--gold-dark);
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .14em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                13px;
+        }
+
+        .section-title {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(36px, 4vw, 58px);
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -.04em;
+
+            margin-bottom:
+                18px;
+        }
+
+        .section-description {
+
+            color:
+                var(--muted);
+
+            font-size:
+                16px;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .95fr 1.05fr;
+
+            gap:
+                80px;
+
+            align-items:
+                center;
+        }
+
+        .about-image {
+
+            position:
+                relative;
+        }
+
+        .about-image img {
+
+            height:
+                520px;
+
+            object-fit:
+                cover;
+
+            border-radius:
+                var(--radius-lg);
+
+            filter:
+                saturate(.85);
+        }
+
+        .image-frame {
+
+            position:
+                absolute;
+
+            inset:
+                18px;
+
+            border:
+                1px solid rgba(255, 255, 255, .3);
+
+            border-radius:
+                24px;
+
+            pointer-events:
+                none;
+        }
+
+        .about-badge {
+
+            position:
+                absolute;
+
+            right:
+                -25px;
+
+            bottom:
+                30px;
+
+            padding:
+                20px;
+
+            border-radius:
+                18px;
+
+            background:
+                #0b0b0b;
+
+            color:
+                #fff;
+
+            border:
+                1px solid rgba(245, 184, 0, .3);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, .25);
+        }
+
+        .about-badge strong {
+
+            display:
+                block;
+
+            color:
+                var(--gold);
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                28px;
+        }
+
+        .about-badge span {
+
+            color:
+                #999;
+
+            font-size:
+                11px;
+        }
+
+        .feature-list {
+
+            display:
+                grid;
+
+            gap:
+                18px;
+
+            margin-top:
+                30px;
+        }
+
+        .feature {
+
+            display:
+                flex;
+
+            gap:
+                15px;
+
+            padding:
+                18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                16px;
+
+            transition:
+                var(--transition);
+        }
+
+        .feature:hover {
+
+            transform:
+                translateX(7px);
+
+            border-color:
+                rgba(255, 121, 0, .35);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .feature-icon {
+
+            min-width:
+                45px;
+
+            height:
+                45px;
+
+            border-radius:
+                13px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            background:
+                rgba(255, 121, 0, .12);
+
+            color:
+                var(--gold-dark);
+        }
+
+        .feature h3 {
+
+            font-size:
+                15px;
+
+            margin-bottom:
+                4px;
+        }
+
+        .feature p {
+
+            font-size:
+                13px;
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services {
+
+            background:
+                #0a0a0a;
+
+            color:
+                #fff;
+        }
+
+        .services .section-description {
+
+            color:
+                #888;
+        }
+
+        .service-filters {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+
+            margin-bottom:
+                35px;
+        }
+
+        .filter-btn {
+
+            border:
+                1px solid rgba(255, 255, 255, .09);
+
+            background:
+                rgba(255, 255, 255, .03);
+
+            color:
+                #999;
+
+            border-radius:
+                999px;
+
+            padding:
+                10px 16px;
+
+            font-size:
+                12px;
+
+            transition:
+                var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+
+            background:
+                var(--gold);
+
+            color:
+                #000;
+
+            border-color:
+                var(--gold);
+        }
+
+        .services-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                18px;
+        }
+
+        .service-card {
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+
+            background:
+                #101010;
+
+            border-radius:
+                22px;
+
+            transition:
+                var(--transition);
+        }
+
+        .service-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(255, 121, 0, .45);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, .35);
+        }
+
+        .service-card.hidden {
+
+            display:
+                none;
+        }
+
+        .service-image {
+
+            height:
+                190px;
+
+            overflow:
+                hidden;
+        }
+
+        .service-image img {
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            transition:
+                transform .6s ease;
+        }
+
+        .service-card:hover img {
+
+            transform:
+                scale(1.08);
+        }
+
+        .service-content {
+
+            padding:
+                24px;
+        }
+
+        .service-number {
+
+            color:
+                var(--gold);
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                15px;
+        }
+
+        .service-card h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                22px;
+
+            margin-bottom:
+                9px;
+        }
+
+        .service-card p {
+
+            color:
+                #888;
+
+            font-size:
+                13px;
+
+            margin-bottom:
+                20px;
+        }
+
+        .service-link {
+
+            color:
+                var(--gold);
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+        }
+
+
+        /* =========================================================
+           SHOWCASE
+        ========================================================= */
+
+        .showcase-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                22px;
+        }
+
+        .project-card {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                25px;
+
+            min-height:
+                380px;
+
+            background:
+                #111;
+
+            /* Project cards are showcase content, not clickable controls. */
+        }
+
+        .project-card img {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .72;
+
+            transition:
+                transform .7s ease,
+                opacity .4s ease;
+        }
+
+        .project-card::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(to top,
+                    rgba(0, 0, 0, .94),
+                    rgba(0, 0, 0, .12));
+        }
+
+        .project-card:hover img {
+
+            transform:
+                scale(1.08);
+
+            opacity:
+                .85;
+        }
+
+        .project-info {
+
+            position:
+                absolute;
+
+            z-index:
+                2;
+
+            left:
+                25px;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            color:
+                #fff;
+        }
+
+        .project-tag {
+
+            display:
+                inline-block;
+
+            padding:
+                6px 10px;
+
+            border-radius:
+                999px;
+
+            background:
+                rgba(255, 121, 0, .15);
+
+            color:
+                var(--gold-light);
+
+            border:
+                1px solid rgba(245, 184, 0, .2);
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                10px;
+        }
+
+        .project-info h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                27px;
+
+            margin-bottom:
+                5px;
+        }
+
+        .project-info p {
+
+            color:
+                #bbb;
+
+            font-size:
+                12px;
+
+            max-width:
+                450px;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+
+            background:
+                linear-gradient(135deg,
+                    #ff7900,
+                    #5b21b6);
+
+            color:
+                #050505;
+        }
+
+        .stats-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .stat {
+
+            padding:
+                28px;
+
+            border-right:
+                1px solid rgba(0, 0, 0, .15);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat strong {
+
+            display:
+                block;
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                clamp(38px, 4vw, 60px);
+
+            line-height:
+                1;
+
+            margin-bottom:
+                8px;
+        }
+
+        .stat span {
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            opacity:
+                .65;
+        }
+
+
+        /* =========================================================
+           PROCESS
+        ========================================================= */
+
+        .process-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .process {
+
+            padding:
+                28px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                22px;
+
+            position:
+                relative;
+
+            transition:
+                var(--transition);
+        }
+
+        .process:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(245, 184, 0, .4);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .process-number {
+
+            font-family:
+                "Space Grotesk";
+
+            color:
+                var(--gold);
+
+            font-size:
+                45px;
+
+            line-height:
+                1;
+
+            opacity:
+                .75;
+
+            margin-bottom:
+                25px;
+        }
+
+        .process h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            margin-bottom:
+                8px;
+        }
+
+        .process p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+        }
+
+
+        /* =========================================================
+           WHY US
+        ========================================================= */
+
+        .why {
+
+            background:
+                #090909;
+
+            color:
+                #fff;
+        }
+
+        .why-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap:
+                80px;
+
+            align-items:
+                center;
+        }
+
+        .why .section-description {
+            color:
+                #888;
+        }
+
+        .why-list {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .why-card {
+
+            padding:
+                25px;
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+
+            border-radius:
+                20px;
+
+            background:
+                rgba(255, 255, 255, .025);
+
+            transition:
+                var(--transition);
+        }
+
+        .why-card:hover {
+
+            border-color:
+                rgba(255, 121, 0, .35);
+
+            background:
+                rgba(245, 184, 0, .04);
+
+            transform:
+                translateY(-5px);
+        }
+
+        .why-card span {
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            width:
+                42px;
+            height:
+                42px;
+
+            border-radius:
+                12px;
+
+            background:
+                rgba(255, 121, 0, .12);
+
+            color:
+                var(--gold);
+
+            margin-bottom:
+                18px;
+        }
+
+        .why-card h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                7px;
+        }
+
+        .why-card p {
+
+            color:
+                #888;
+
+            font-size:
+                12px;
+        }
+
+
+        /* =========================================================
+           VALUES
+        ========================================================= */
+
+        .values {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+        .value-card {
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                24px;
+
+            background:
+                linear-gradient(145deg,
+                    rgba(245, 184, 0, .06),
+                    transparent);
+
+            transition:
+                var(--transition);
+        }
+
+        .value-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(245, 184, 0, .4);
+        }
+
+        .value-icon {
+
+            font-size:
+                32px;
+
+            margin-bottom:
+                22px;
+        }
+
+        .value-card h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            margin-bottom:
+                9px;
+        }
+
+        .value-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq {
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+        }
+
+        .faq-item {
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .faq-question {
+
+            width:
+                100%;
+
+            padding:
+                23px 0;
+
+            background:
+                transparent;
+
+            border:
+                0;
+
+            color:
+                var(--text);
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            text-align:
+                left;
+
+            font-weight:
+                700;
+
+            font-size:
+                15px;
+        }
+
+        .faq-plus {
+
+            width:
+                30px;
+
+            height:
+                30px;
+
+            border-radius:
+                50%;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            background:
+                rgba(255, 121, 0, .12);
+
+            color:
+                var(--gold-dark);
+
+            transition:
+                var(--transition);
+        }
+
+        .faq-answer {
+
+            max-height:
+                0;
+
+            overflow:
+                hidden;
+
+            transition:
+                max-height .45s ease;
+        }
+
+        .faq-answer p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            padding:
+                0 45px 22px 0;
+        }
+
+        .faq-item.open .faq-plus {
+
+            transform:
+                rotate(45deg);
+
+            background:
+                var(--gold);
+
+            color:
+                #000;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+
+            padding:
+                80px 0;
+
+            background:
+                #0a0a0a;
+        }
+
+        .cta-box {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid rgba(255, 121, 0, .25);
+
+            border-radius:
+                30px;
+
+            padding:
+                65px;
+
+            background:
+                radial-gradient(circle at 85% 20%,
+                    rgba(255, 121, 0, .18),
+                    transparent 35%),
+                #111;
+
+            color:
+                #fff;
+        }
+
+        .cta-box::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                240px;
+
+            height:
+                240px;
+
+            border:
+                1px solid rgba(255, 121, 0, .16);
+
+            border-radius:
+                50%;
+
+            right:
+                -90px;
+
+            bottom:
+                -100px;
+        }
+
+        .cta-box h2 {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                clamp(34px, 5vw, 60px);
+
+            max-width:
+                700px;
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                16px;
+        }
+
+        .cta-box p {
+
+            color:
+                #8c8c8c;
+
+            max-width:
+                650px;
+
+            margin-bottom:
+                28px;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact {
+
+            background:
+                var(--white-soft);
+        }
+
+        .contact-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap:
+                70px;
+        }
+
+        .contact-info {
+
+            padding-top:
+                15px;
+        }
+
+        .contact-items {
+
+            display:
+                grid;
+
+            gap:
+                13px;
+
+            margin-top:
+                30px;
+        }
+
+        .contact-item {
+
+            display:
+                flex;
+
+            gap:
+                14px;
+
+            padding:
+                18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                16px;
+
+            transition:
+                var(--transition);
+        }
+
+        .contact-item:hover {
+
+            border-color:
+                rgba(245, 184, 0, .4);
+
+            transform:
+                translateX(5px);
+        }
+
+        .contact-icon {
+
+            width:
+                42px;
+            height:
+                42px;
+
+            flex:
+                0 0 42px;
+
+            border-radius:
+                12px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            background:
+                rgba(255, 121, 0, .12);
+
+            color:
+                var(--gold-dark);
+        }
+
+        .contact-item strong {
+
+            display:
+                block;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                3px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+        }
+
+        .contact-form {
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                25px;
+
+            background:
+                rgba(255, 255, 255, .45);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        [data-theme="dark"] .contact-form {
+
+            background:
+                #111;
+        }
+
+        .form-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .form-group {
+
+            display:
+                grid;
+
+            gap:
+                7px;
+        }
+
+        .form-group.full {
+
+            grid-column:
+                1 / -1;
+        }
+
+        .form-group label {
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width:
+                100%;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--white);
+
+            color:
+                var(--text);
+
+            padding:
+                13px 14px;
+
+            border-radius:
+                12px;
+
+            outline:
+                none;
+
+            transition:
+                var(--transition);
+        }
+
+        .form-group textarea {
+
+            min-height:
+                135px;
+
+            resize:
+                vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 121, 0, .10);
+        }
+
+        .form-submit {
+
+            margin-top:
+                18px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            background:
+                #050505;
+
+            color:
+                #fff;
+
+            padding:
+                70px 0 25px;
+        }
+
+        .footer-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.3fr .8fr .9fr 1fr;
+
+            gap:
+                40px;
+
+            padding-bottom:
+                45px;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-brand p {
+
+            color:
+                #777;
+
+            font-size:
+                13px;
+
+            max-width:
+                330px;
+
+            margin:
+                20px 0;
+        }
+
+        .footer-title {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                18px;
+        }
+
+        .footer-links {
+
+            display:
+                grid;
+
+            gap:
+                10px;
+
+            list-style:
+                none;
+        }
+
+        .footer-links a {
+
+            color:
+                #777;
+
+            font-size:
+                12px;
+
+            transition:
+                var(--transition);
+        }
+
+        .footer-links a:hover {
+
+            color:
+                var(--gold);
+        }
+
+        .socials {
+
+            display:
+                flex;
+
+            gap:
+                8px;
+        }
+
+        .social {
+
+            width:
+                38px;
+            height:
+                38px;
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+
+            border-radius:
+                50%;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            color:
+                #aaa;
+
+            transition:
+                var(--transition);
+        }
+
+        .social svg {
+            width: 17px;
+            height: 17px;
+            display: block;
+        }
+
+        .social:hover {
+            background:
+                var(--gold);
+
+            color:
+                #000;
+
+            border-color:
+                var(--gold);
+
+            transform:
+                translateY(-3px);
+        }
+
+        .copyright {
+
+            padding-top:
+                22px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            color:
+                #666;
+
+            font-size:
+                11px;
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            padding:
+                20px;
+
+            background:
+                rgba(0, 0, 0, .78);
+
+            backdrop-filter:
+                blur(10px);
+
+            z-index:
+                5000;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transition:
+                var(--transition);
+        }
+
+        .modal.active {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+        }
+
+        .modal-box {
+
+            width:
+                min(700px, 100%);
+
+            background:
+                #111;
+
+            color:
+                #fff;
+
+            border:
+                1px solid rgba(255, 121, 0, .25);
+
+            border-radius:
+                25px;
+
+            overflow:
+                hidden;
+
+            transform:
+                translateY(30px) scale(.96);
+
+            transition:
+                var(--transition);
+        }
+
+        .modal.active .modal-box {
+
+            transform:
+                translateY(0) scale(1);
+        }
+
+        .modal-image {
+
+            height:
+                300px;
+        }
+
+        .modal-image img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+        }
+
+        .modal-content {
+
+            padding:
+                30px;
+        }
+
+        .modal-content h3 {
+
+            font-family:
+                "Space Grotesk";
+
+            font-size:
+                30px;
+
+            margin-bottom:
+                10px;
+        }
+
+        .modal-content p {
+
+            color:
+                #888;
+
+            font-size:
+                13px;
+        }
+
+        .modal-close {
+
+            position:
+                absolute;
+
+            right:
+                25px;
+
+            top:
+                25px;
+
+            width:
+                40px;
+            height:
+                40px;
+
+            border:
+                1px solid rgba(255, 255, 255, .2);
+
+            background:
+                rgba(0, 0, 0, .5);
+
+            color:
+                #fff;
+
+            border-radius:
+                50%;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast {
+
+            position:
+                fixed;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            z-index:
+                9000;
+
+            padding:
+                14px 18px;
+
+            border-radius:
+                14px;
+
+            background:
+                #111;
+
+            color:
+                #fff;
+
+            border:
+                1px solid rgba(245, 184, 0, .3);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .3);
+
+            transform:
+                translateY(30px);
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            transition:
+                var(--transition);
+
+            font-size:
+                12px;
+        }
+
+        .toast.show {
+
+            transform:
+                translateY(0);
+
+            opacity:
+                1;
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .back-top {
+
+            position:
+                fixed;
+
+            right:
+                22px;
+
+            bottom:
+                22px;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border:
+                0;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--gold);
+
+            color:
+                #000;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            z-index:
+                800;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                var(--transition);
+
+            box-shadow:
+                0 10px 30px rgba(255, 121, 0, .25);
+        }
+
+        .back-top.show {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.visible {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width:1000px) {
+
+            .hero-grid,
+            .about-grid,
+            .why-grid,
+            .contact-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .hero {
+
+                padding-top:
+                    140px;
+            }
+
+            .hero-visual {
+
+                min-height:
+                    450px;
+            }
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .process-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .about-image {
+
+                max-width:
+                    650px;
+            }
+
+            .why-list {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:760px) {
+
+            .container {
+
+                width:
+                    min(calc(100% - 28px),
+                        var(--container));
+            }
+
+            section {
+
+                padding:
+                    80px 0;
+            }
+
+            .nav-links {
+
+                position:
+                    fixed;
+
+                top:
+                    82px;
+
+                left:
+                    14px;
+
+                right:
+                    14px;
+
+                padding:
+                    20px;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                background:
+                    rgba(8, 8, 8, .96);
+
+                backdrop-filter:
+                    blur(20px);
+
+                border:
+                    1px solid rgba(255, 255, 255, .09);
+
+                border-radius:
+                    20px;
+
+                opacity:
+                    0;
+
+                visibility:
+                    hidden;
+
+                transform:
+                    translateY(-15px);
+
+                transition:
+                    var(--transition);
+            }
+
+            .nav-links.open {
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    translateY(0);
+            }
+
+            .nav-links a {
+
+                display:
+                    block;
+
+                padding:
+                    10px;
+            }
+
+            .menu-btn {
+
+                display:
+                    grid;
+
+                place-items:
+                    center;
+            }
+
+            .nav-actions .btn {
+
+                display:
+                    none;
+            }
+
+            .hero h1 {
+
+                font-size:
+                    clamp(44px, 12vw, 65px);
+            }
+
+            .hero-visual {
+
+                min-height:
+                    390px;
+            }
+
+            .hero-card {
+
+                transform:
+                    none;
+            }
+
+            .float-one {
+
+                right:
+                    0;
+            }
+
+            .float-two {
+
+                left:
+                    0;
+            }
+
+            .services-grid,
+            .showcase-grid,
+            .values {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .stat {
+
+                border-right:
+                    0;
+
+                border-bottom:
+                    1px solid rgba(0, 0, 0, .12);
+            }
+
+            .process-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .why-list {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .form-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .form-group.full {
+
+                grid-column:
+                    auto;
+            }
+
+            .cta-box {
+
+                padding:
+                    40px 25px;
+            }
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .copyright {
+
+                flex-direction:
+                    column;
+            }
+
+            .about-image img {
+
+                height:
+                    400px;
+            }
+
+            .about-badge {
+
+                right:
+                    10px;
+            }
+        }
+
+        @media(max-width:430px) {
+
+            .hero-buttons {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+            .hero-buttons .btn {
+
+                width:
+                    100%;
+            }
+
+            .stats-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .stat {
+
+                padding:
+                    20px 5px;
+            }
+
+            .hero-visual {
+
+                min-height:
+                    340px;
+            }
+
+            .float-card {
+
+                padding:
+                    10px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
+        }
+
+
+        /* =========================================================
+           HENUFY BRAND SYSTEM + THEME POLISH
+        ========================================================= */
+        :root {
+            color-scheme: light;
+            --brand-purple: #351078;
+            --brand-purple-deep: #21004f;
+            --brand-orange: #ff7900;
+            --brand-orange-soft: #ffb347;
+            --focus-ring: 0 0 0 3px rgba(255, 121, 0, .28);
+        }
+        [data-theme="dark"] { color-scheme: dark; }
+        :focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 3px; }
+        .logo { color: var(--text); gap: 0; }
+        .logo-mark {
+            width: 154px; height: 48px; padding: 5px 9px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 10px; background: #fff; border: 1px solid rgba(53,16,120,.12);
+            box-shadow: 0 5px 18px rgba(0,0,0,.12); overflow: hidden;
+        }
+        .logo-mark::after { display: none; }
+        .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+        .logo:hover .logo-mark { transform: translateY(-2px); border-color: var(--brand-orange); }
+        .icon-btn { font-size: 20px; line-height: 1; }
+        .icon-btn:focus-visible, .menu-btn:focus-visible { outline-offset: 4px; }
+        header.scrolled { background: rgba(20, 8, 42, .94); }
+        .btn-gold { background: linear-gradient(135deg, var(--brand-orange), #ff9d32); color: #1d1030; }
+        .btn-gold:hover { box-shadow: 0 12px 30px rgba(255,121,0,.28); }
+        .progress-bar { background: linear-gradient(90deg, var(--brand-purple), var(--brand-orange), #ffc46b); }
+        [data-theme="dark"] body { background-color: #100b19; }
+        [data-theme="dark"] .contact-form,
+        [data-theme="dark"] .faq-item,
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .value-card,
+        [data-theme="dark"] .process-card,
+        [data-theme="dark"] .why-card { background-color: #191324; color: var(--text); border-color: rgba(255,255,255,.1); }
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select { background: #100b19; color: #fff; border-color: rgba(255,255,255,.16); }
+        [data-theme="dark"] .nav-links { background: rgba(25, 15, 39, .98); }
+        [data-theme="dark"] .nav-links a { color: rgba(255,255,255,.82); }
+        [data-theme="dark"] .icon-btn,
+        [data-theme="dark"] .menu-btn { color: #fff; }
+        @media (max-width:760px) {
+            .nav { height: 74px; }
+            .nav-links { top: 74px; }
+            .logo-mark { width: 138px; height: 44px; }
+            .nav-actions { gap: 8px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+        }
+
+        /* Final polish: transparent logo assets, restrained effects and accessible controls */
+        .logo { display: inline-flex; align-items: center; gap: 0; }
+        .logo-mark {
+            width: 154px; height: 48px; padding: 0; margin: 0;
+            border: 0; border-radius: 0; background: transparent;
+            box-shadow: none; overflow: visible;
+        }
+        .logo-mark::after { content: none; }
+        .logo-mark .logo-image {
+            display: block; width: 100%; height: 100%; object-fit: contain;
+        }
+        .logo-image-dark { display: none !important; }
+        [data-theme="dark"] .logo-image-light { display: none !important; }
+        [data-theme="dark"] .logo-image-dark { display: block !important; }
+        .logo:hover .logo-mark { transform: none; border-color: transparent; box-shadow: none; }
+        .logo:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 5px; border-radius: 4px; }
+        .nav-links a:focus-visible, .btn:focus-visible, .filter-btn:focus-visible,
+        .faq-question:focus-visible, .social:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 4px; }
+        .progress-bar { pointer-events: none; }
+        .hero::before { animation: none; }
+        .hero-card { backdrop-filter: none; }
+        .float-card { backdrop-filter: none; animation: none; }
+        .about-image img { filter: none; }
+        img { height: auto; }
+        .service-image img, .project-card img, .about-image img, .modal-image img { height: 100%; }
+        [data-theme="dark"] .logo { color: #fff; }
+        [data-theme="dark"] .contact { background: #100b19; }
+        [data-theme="dark"] .contact-form { background: #191324; }
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group textarea,
+        [data-theme="dark"] .form-group select { background: #100b19; color: #fff; }
+        [data-theme="dark"] .section-label,
+        [data-theme="dark"] .feature-icon,
+        [data-theme="dark"] .contact-icon { color: #ff9b3d; }
+        .menu-btn { min-width: 44px; min-height: 44px; }
+        @media (max-width: 760px) {
+            .logo-mark { width: 132px; height: 42px; }
+            .nav-actions .btn { display: none; }
+            .nav-links { max-height: calc(100dvh - 90px); overflow-y: auto; }
+            .nav-links.open { display: flex; }
+        }
+        @media (max-width: 380px) {
+            .logo-mark { width: 116px; height: 38px; }
+            .nav-actions { gap: 6px; }
+            .icon-btn { width: 40px; height: 40px; }
+        }
+        @media (hover: none) {
+            .feature:hover, .service-card:hover, .process:hover,
+            .why-card:hover, .value-card:hover, .project-card:hover img { transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before, .float-card, .bar { animation: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+
+    </style>
+<link href="https://images.unsplash.com" rel="preconnect"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Henufy", "email": "contact@henufy.com", "telephone": "+91 8668120970", "address": {"@type": "PostalAddress", "streetAddress": "5/40, North Street, Kulithalai, Inungur", "addressLocality": "Karur", "addressRegion": "Tamil Nadu", "postalCode": "639110", "addressCountry": "IN"}}</script>
+<style>
+/* Performance and content refinements */
+img { max-width: 100%; }
+.hero-capabilities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:22px; }
+.hero-capabilities span { padding:10px 12px; border:1px solid var(--dark-border); border-radius:10px; color:var(--white); font-size:.88rem; background:rgba(255,255,255,.045); }
+.form-note { margin:14px 0 0; color:var(--muted); font-size:.85rem; line-height:1.55; }
+.footer-email-link { display:inline-flex; margin-top:14px; color:var(--gold-light); font-weight:700; text-decoration:none; }
+.footer-email-link:hover { text-decoration:underline; }
+@media (max-width:520px) { .hero-capabilities { grid-template-columns:1fr; } }
+</style>
+
+</head>
+<body>
+<!-- =========================================================
+     SCROLL PROGRESS
+========================================================= -->
+<div aria-label="Page reading progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" id="progressBar" role="progressbar"></div>
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header id="header">
+<div class="container nav">
+<a class="logo" href="#home">
+<!-- HENUFY BRAND LOGO -->
+<span aria-hidden="true" class="logo-mark">
+<img alt="" class="logo-image logo-image-light" decoding="async" height="48" loading="eager" src="assets/logo.png" width="180"/>
+<img alt="" class="logo-image logo-image-dark" decoding="async" height="48" loading="lazy" src="assets/logo-dark.png" width="180"/>
+</span>
+</a>
+<ul class="nav-links" id="navLinks">
+<li>
+<a class="active" href="#home">
+                        Home
+                    </a>
+</li>
+<li>
+<a href="#about">
+                        About
+                    </a>
+</li>
+<li>
+<a href="#services">
+                        Services
+                    </a>
+</li>
+<li>
+<a href="#work">
+                        Solutions
+                    </a>
+</li>
+<li>
+<a href="#process">
+                        Process
+                    </a>
+</li>
+<li>
+<a href="#contact">
+                        Contact
+                    </a>
+</li>
+</ul>
+<div class="nav-actions">
+<button aria-label="Switch to dark theme" aria-pressed="false" class="icon-btn" id="themeToggle" title="Switch theme" type="button">☾</button>
+<a class="btn btn-gold" href="#contact">
+
+                    Start a Project
+                    <span>↗</span>
+</a>
+<button aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn" type="button">
+
+                    ☰
+
+                </button>
+</div>
+</div>
+</header>
+<!-- =========================================================
+     HERO
+========================================================= -->
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="hero-content reveal">
+<div class="eyebrow">
+<span class="eyebrow-dot"></span>
+
+                        IT Services &amp; IT Consulting
+
+                    </div>
+<h1>
+
+                        Digital products
+                        <span>engineered</span>
+                        for growth.
+
+                    </h1>
+<p class="hero-description">Henufy helps businesses plan, design and build websites, web applications and custom software—along with the integrations and cloud foundations that keep them working.</p>
+<div class="hero-buttons">
+<a class="btn btn-gold" href="#contact">
+
+                            Build With Us
+                            <span>→</span>
+</a>
+<a class="btn btn-outline" href="#services">
+
+                            Explore Services
+
+                        </a>
+</div>
+</div>
+<div class="hero-visual reveal">
+<div class="hero-card"><div class="dashboard-top"><span class="dashboard-title">HENUFY DIGITAL SERVICES</span></div><div class="dashboard-main"><div class="dashboard-label">PLAN · DESIGN · BUILD · SUPPORT</div><div class="dashboard-value" style="font-size:clamp(1.5rem,3vw,2.5rem)">Ideas into useful software</div><div class="hero-capabilities"><span>Websites &amp; web apps</span><span>Custom software</span><span>UI / UX design</span><span>Cloud &amp; integrations</span></div></div></div>
+<div class="float-card float-one">
+<strong>24/7</strong>
+<small>
+                            Technology mindset
+                        </small>
+</div>
+<div class="float-card float-two">
+<strong>360°</strong>
+<small>
+                            Digital thinking
+                        </small>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     TECHNOLOGY BAR
+========================================================= -->
+<div class="trust">
+<div class="container trust-inner">
+<span class="trust-label">
+                    Technology driven
+                </span>
+<div class="tech-list">
+<span class="tech-pill">Web</span>
+<span class="tech-pill">Software</span>
+<span class="tech-pill">Cloud</span>
+<span class="tech-pill">API</span>
+<span class="tech-pill">UI / UX</span>
+<span class="tech-pill">Automation</span>
+<span class="tech-pill">Digital</span>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+<section id="about">
+<div class="container about-grid">
+<div class="about-image reveal">
+<img alt="Technology team collaboration" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200"/>
+<div class="image-frame"></div>
+<div class="about-badge">
+<strong>Digital</strong>
+<span>
+                            Engineering mindset
+                        </span>
+</div>
+</div>
+<div class="reveal">
+<span class="section-label">
+                        About Henufy
+                    </span>
+<h2 class="section-title">
+
+                        Technology that
+                        moves your business
+                        forward.
+
+                    </h2>
+<p class="section-description">
+
+                        We combine design thinking, engineering
+                        discipline and modern technologies to create
+                        digital experiences that are reliable,
+                        scalable and easy to evolve.
+
+                    </p>
+<div class="feature-list">
+<div class="feature">
+<div class="feature-icon">
+                                ✦
+                            </div>
+<div>
+<h3>
+                                    Engineering First
+                                </h3>
+<p>
+                                    Clean architecture, maintainable code
+                                    and scalable foundations.
+                                </p>
+</div>
+</div>
+<div class="feature">
+<div class="feature-icon">
+                                ◈
+                            </div>
+<div>
+<h3>
+                                    User Focused
+                                </h3>
+<p>
+                                    Interfaces and experiences designed
+                                    around real user needs.
+                                </p>
+</div>
+</div>
+<div class="feature">
+<div class="feature-icon">
+                                ↗
+                            </div>
+<div>
+<h3>
+                                    Built to Scale
+                                </h3>
+<p>
+                                    Flexible digital solutions ready for
+                                    future growth.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-head reveal">
+<span class="section-label">
+                        What We Do
+                    </span>
+<h2 class="section-title">
+                        Digital capabilities
+                        built around your goals.
+                    </h2>
+<p class="section-description">Practical digital services for businesses that need a clear online presence, better workflows or software built around the way they work.</p>
+</div>
+<div class="service-filters">
+<button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+<button class="filter-btn" data-filter="development">
+                        Development
+                    </button>
+<button class="filter-btn" data-filter="design">
+                        Design
+                    </button>
+<button class="filter-btn" data-filter="cloud">
+                        Cloud
+                    </button>
+<button class="filter-btn" data-filter="business">
+                        Business
+                    </button>
+</div>
+<div class="services-grid">
+<article class="service-card reveal" data-category="development">
+<div class="service-image">
+<img alt="Web development" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                01 / DEVELOPMENT
+                            </div>
+<h3>
+                                Web Development
+                            </h3>
+<p>
+                                Fast, responsive and scalable websites
+                                engineered for modern businesses.
+                            </p>
+<a class="service-link" href="#contact">
+                                Discuss your website →
+                            </a>
+</div>
+</article>
+<article class="service-card reveal" data-category="development">
+<div class="service-image">
+<img alt="Software engineering" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                02 / ENGINEERING
+                            </div>
+<h3>
+                                Software Engineering
+                            </h3>
+<p>
+                                Robust applications and backend systems
+                                designed for reliability and growth.
+                            </p>
+<a class="service-link" href="#contact">
+                                Build your product →
+                            </a>
+</div>
+</article>
+<article class="service-card reveal" data-category="design">
+<div class="service-image">
+<img alt="UI UX design" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                03 / DESIGN
+                            </div>
+<h3>
+                                UI / UX Design
+                            </h3>
+<p>
+                                Elegant interfaces and intuitive user
+                                journeys that make products easier to use.
+                            </p>
+<a class="service-link" href="#contact">
+                                Design an experience →
+                            </a>
+</div>
+</article>
+<article class="service-card reveal" data-category="cloud">
+<div class="service-image">
+<img alt="Cloud technology" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                04 / CLOUD
+                            </div>
+<h3>
+                                Cloud &amp; DevOps
+                            </h3>
+<p>
+                                Deployment, infrastructure and automation
+                                strategies for modern digital platforms.
+                            </p>
+<a class="service-link" href="#contact">
+                                Modernize infrastructure →
+                            </a>
+</div>
+</article>
+<article class="service-card reveal" data-category="development">
+<div class="service-image">
+<img alt="API integration" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                05 / INTEGRATION
+                            </div>
+<h3>
+                                APIs &amp; Integrations
+                            </h3>
+<p>
+                                Secure APIs and connected systems that help
+                                different platforms work together.
+                            </p>
+<a class="service-link" href="#contact">
+                                Connect your systems →
+                            </a>
+</div>
+</article>
+<article class="service-card reveal" data-category="business">
+<div class="service-image">
+<img alt="Digital transformation" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1200"/>
+</div>
+<div class="service-content">
+<div class="service-number">
+                                06 / TRANSFORMATION
+                            </div>
+<h3>
+                                Digital Transformation
+                            </h3>
+<p>
+                                Turn manual processes and ideas into
+                                efficient digital workflows.
+                            </p>
+<a class="service-link" href="#contact">
+                                Transform your workflow →
+                            </a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     SOLUTIONS / SHOWCASE
+========================================================= -->
+<section id="work">
+<div class="container">
+<div class="section-head reveal">
+<span class="section-label">What We Can Build</span>
+<h2 class="section-title">Digital solutions for everyday business needs.</h2>
+<p class="section-description">These are example solution areas, not a client portfolio. Tell us about your requirements and we can discuss the right approach.</p>
+</div>
+<div class="showcase-grid">
+<article class="project-card reveal" data-project="platform">
+<img alt="Analytics platform" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200"/>
+<div class="project-info">
+<span class="project-tag">
+                                DIGITAL PLATFORM
+                            </span>
+<h3>
+                                Business Dashboards
+                            </h3>
+<p>
+                                Data-driven dashboards designed to simplify
+                                complex business information.
+                            </p>
+</div>
+</article>
+<article class="project-card reveal" data-project="commerce">
+<img alt="Digital commerce" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200"/>
+<div class="project-info">
+<span class="project-tag">
+                                WEB EXPERIENCE
+                            </span>
+<h3>
+                                Digital Commerce
+                            </h3>
+<p>
+                                Modern customer experiences for online
+                                businesses and digital products.
+                            </p>
+</div>
+</article>
+<article class="project-card reveal" data-project="automation">
+<img alt="Automation technology" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200"/>
+<div class="project-info">
+<span class="project-tag">
+                                AUTOMATION
+                            </span>
+<h3>
+                                Workflow Automation
+                            </h3>
+<p>
+                                Connect repetitive processes with smarter
+                                digital workflows.
+                            </p>
+</div>
+</article>
+<article class="project-card reveal" data-project="cloud">
+<img alt="Cloud infrastructure" decoding="async" height="800" loading="lazy" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200"/>
+<div class="project-info">
+<span class="project-tag">
+                                CLOUD
+                            </span>
+<h3>
+                                Cloud Platforms
+                            </h3>
+<p>
+                                Scalable infrastructure concepts for
+                                growing digital applications.
+                            </p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+<section id="process">
+<div class="container">
+<div class="section-head reveal">
+<span class="section-label">
+                        Our Process
+                    </span>
+<h2 class="section-title">
+                        Simple process.
+                        Serious engineering.
+                    </h2>
+<p class="section-description">
+                        A transparent delivery approach that keeps
+                        strategy, design, development and business
+                        objectives aligned.
+                    </p>
+</div>
+<div class="process-grid">
+<div class="process reveal">
+<div class="process-number">
+                            01
+                        </div>
+<h3>
+                            Discover
+                        </h3>
+<p>
+                            Understand your business, users,
+                            requirements and technology challenges.
+                        </p>
+</div>
+<div class="process reveal">
+<div class="process-number">
+                            02
+                        </div>
+<h3>
+                            Design
+                        </h3>
+<p>
+                            Create user flows, architecture and
+                            visual direction before development.
+                        </p>
+</div>
+<div class="process reveal">
+<div class="process-number">
+                            03
+                        </div>
+<h3>
+                            Develop
+                        </h3>
+<p>
+                            Build, integrate and test the solution
+                            using modern development practices.
+                        </p>
+</div>
+<div class="process reveal">
+<div class="process-number">
+                            04
+                        </div>
+<h3>
+                            Launch &amp; Improve
+                        </h3>
+<p>
+                            Deploy, monitor and continuously improve
+                            the digital experience.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section>
+<div class="container">
+<div class="section-head reveal">
+<span class="section-label">
+                        FAQ
+                    </span>
+<h2 class="section-title">
+                        Questions, answered.
+                    </h2>
+</div>
+<div class="faq">
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+
+                            What services does Henufy provide?
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+</button>
+<div class="faq-answer">
+<p>
+                                Henufy provides web development,
+                                software engineering, UI/UX design, API
+                                integrations, cloud and DevOps solutions,
+                                automation and digital transformation services.
+                            </p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+
+                            Can you build a website from scratch?
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+</button>
+<div class="faq-answer">
+<p>
+                                Yes. A project can start from a simple idea,
+                                design concept or business requirement and
+                                progress through design, development,
+                                testing and launch.
+                            </p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+
+                            Can you develop custom software?
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+</button>
+<div class="faq-answer">
+<p>
+                                Yes. Custom applications can be designed around
+                                specific workflows, business requirements,
+                                integrations and future scalability.
+                            </p>
+</div>
+</div>
+<div class="faq-item reveal">
+<button aria-expanded="false" class="faq-question" type="button">
+
+                            How can I start a project?
+
+                            <span class="faq-plus">
+                                +
+                            </span>
+</button>
+<div class="faq-answer">
+<p>
+                                Send your requirements through the contact
+                                form or contact the Henufy team
+                                directly by phone or email.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     CTA
+========================================================= -->
+<section class="cta">
+<div class="container">
+<div class="cta-box reveal">
+<h2>
+                        Have an idea?
+                        Let's turn it into
+                        something digital.
+                    </h2>
+<p>
+                        Tell us what you're building, what problem you
+                        want to solve and where you want to go next.
+                    </p>
+<a class="btn btn-gold" href="#contact">
+
+                        Start a Conversation →
+                    </a>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+<section class="contact" id="contact">
+<div class="container contact-grid">
+<div class="contact-info reveal">
+<span class="section-label">
+                        Contact Us
+                    </span>
+<h2 class="section-title">
+                        Let's build something
+                        great together.
+                    </h2>
+<p class="section-description">
+                        Have a project, technology challenge or business
+                        idea? Get in touch with Henufy.
+                    </p>
+<div class="contact-items">
+<div class="contact-item">
+<div class="contact-icon">
+                                ✉
+                            </div>
+<div>
+<strong>
+                                    Email
+                                </strong>
+<a href="mailto:contact@henufy.com">
+                                    contact@henufy.com
+                                </a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+                                ☎
+                            </div>
+<div>
+<strong>
+                                    Phone
+                                </strong>
+<a href="tel:+918668120970">
+                                    +91 8668120970
+                                </a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+                                ◉
+                            </div>
+<div>
+<strong>
+                                    Office
+                                </strong>
+<a href="https://maps.app.goo.gl/W3w4ZA2DoLyZdFLe7" rel="noopener noreferrer" target="_blank">
+
+                                    5/40, North Street,<br/>
+                                Kulithalai,<br/>
+                                Inungur,<br/>
+                                Karur, Tamil Nadu – 639110
+
+                                </a>
+</div>
+</div>
+</div>
+</div>
+<!-- CONTACT FORM -->
+<form class="contact-form reveal" id="contactForm">
+<div class="form-grid">
+<div class="form-group">
+<label for="name">
+                                Your Name
+                            </label>
+<input id="name" name="name" placeholder="Enter your name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">
+                                Email Address
+                            </label>
+<input id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">
+                                Phone
+                            </label>
+<input id="phone" name="phone" placeholder="+91" type="tel"/>
+</div>
+<div class="form-group">
+<label for="service">
+                                Service
+                            </label>
+<select id="service" name="service">
+<option value="">
+                                    Select a service
+                                </option>
+<option>
+                                    Web Development
+                                </option>
+<option>
+                                    Software Engineering
+                                </option>
+<option>
+                                    UI / UX Design
+                                </option>
+<option>
+                                    Cloud &amp; DevOps
+                                </option>
+<option>
+                                    API &amp; Integrations
+                                </option>
+<option>
+                                    Digital Transformation
+                                </option>
+</select>
+</div>
+<div class="form-group full">
+<label for="message">
+                                Project Details
+                            </label>
+<textarea id="message" name="message" placeholder="Tell us about your project..." required=""></textarea>
+</div>
+</div>
+<button class="btn btn-gold form-submit" type="submit">Prepare Email Enquiry <span>→</span>
+</button>
+<p class="form-note">Submitting opens your email application with the enquiry details ready to send.</p></form>
+</div>
+</section>
+</main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="logo" href="#home">
+<span aria-hidden="true" class="logo-mark">
+<img alt="" class="logo-image logo-image-light" decoding="async" height="48" loading="eager" src="assets/logo.png" width="180"/>
+<img alt="" class="logo-image logo-image-dark" decoding="async" height="48" loading="lazy" src="assets/logo-dark.png" width="180"/>
+</span>
+</a>
+<p>
+                        IT Services and IT Consulting focused on
+                        modern software, web, cloud and digital
+                        experiences.
+                    </p>
+<div class="socials"><a class="footer-email-link" href="mailto:contact@henufy.com">Email Henufy →</a></div>
+</div>
+<div>
+<h3 class="footer-title">
+                        Quick Links
+                    </h3>
+<ul class="footer-links">
+<li>
+<a href="#home">
+                                Home
+                            </a>
+</li>
+<li>
+<a href="#about">
+                                About
+                            </a>
+</li>
+<li>
+<a href="#services">
+                                Services
+                            </a>
+</li>
+<li>
+<a href="#work">
+                                Solutions
+                            </a>
+</li>
+<li>
+<a href="#contact">
+                                Contact
+                            </a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="footer-title">
+                        Services
+                    </h3>
+<ul class="footer-links">
+<li>
+<a href="#services">
+                                Web Development
+                            </a>
+</li>
+<li>
+<a href="#services">
+                                Software Engineering
+                            </a>
+</li>
+<li>
+<a href="#services">
+                                UI / UX Design
+                            </a>
+</li>
+<li>
+<a href="#services">
+                                Cloud &amp; DevOps
+                            </a>
+</li>
+<li>
+<a href="#services">
+                                Digital Transformation
+                            </a>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="footer-title">
+                        Contact
+                    </h3>
+<ul class="footer-links">
+<li>
+<a href="mailto:contact@henufy.com">
+                                contact@henufy.com
+                            </a>
+</li>
+<li>
+<a href="tel:+918668120970">
+                                +91 8668120970
+                            </a>
+</li>
+<li>
+<a href="https://maps.app.goo.gl/W3w4ZA2DoLyZdFLe7" rel="noopener noreferrer" target="_blank">
+
+                                5/40, North Street,<br/>
+                                Kulithalai,<br/>
+                                Inungur,<br/>
+                                Karur, Tamil Nadu – 639110
+
+                            </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<span>
+                    © 2026 Henufy. All rights reserved.
+                </span>
+
+</div>
+</div>
+</footer>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+<div class="toast" id="toast">
+        Message sent successfully.
+    </div>
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+<button aria-label="Back to top" class="back-top" id="backTop">
+
+        ↑
+
+    </button>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+        /* =========================================================
+           HEADER SCROLL
+        ========================================================= */
+
+        const header =
+            document.getElementById("header");
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+        const backTop =
+            document.getElementById("backTop");
+
+
+        window.addEventListener("scroll", () => {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight -
+                window.innerHeight;
+
+            const progress =
+                documentHeight > 0
+                    ? (scrollTop / documentHeight) * 100
+                    : 0;
+
+            if (progressBar) {
+                progressBar.style.width = progress + "%";
+                progressBar.setAttribute("aria-valuenow", String(Math.round(progress)));
+            }
+
+            if (scrollTop > 40) {
+                header?.classList.add("scrolled");
+                backTop?.classList.add("show");
+            } else {
+                header?.classList.remove("scrolled");
+                backTop?.classList.remove("show");
+            }
+
+        });
+
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================= */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn?.addEventListener("click", () => {
+
+            if (!navLinks) return;
+            const isOpen = navLinks.classList.toggle("open");
+            menuBtn.textContent = isOpen ? "×" : "☰";
+            menuBtn.setAttribute("aria-expanded", String(isOpen));
+            menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+        });
+
+
+        document.querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks?.classList.remove("open");
+
+                    if (menuBtn) {
+                        menuBtn.textContent = "☰";
+                        menuBtn.setAttribute("aria-expanded", "false");
+                        menuBtn.setAttribute("aria-label", "Open menu");
+                    }
+
+                });
+
+            });
+
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && navLinks?.classList.contains("open")) {
+                navLinks.classList.remove("open");
+                if (menuBtn) {
+                    menuBtn.textContent = "☰";
+                    menuBtn.setAttribute("aria-expanded", "false");
+                    menuBtn.setAttribute("aria-label", "Open menu");
+                    menuBtn.focus();
+                }
+            }
+        });
+
+        document.addEventListener("click", event => {
+            if (navLinks?.classList.contains("open") &&
+                !navLinks.contains(event.target) && !menuBtn?.contains(event.target)) {
+                navLinks.classList.remove("open");
+                if (menuBtn) {
+                    menuBtn.textContent = "☰";
+                    menuBtn.setAttribute("aria-expanded", "false");
+                    menuBtn.setAttribute("aria-label", "Open menu");
+                }
+            }
+        });
+
+
+        /* =========================================================
+           ACTIVE NAV
+        ========================================================= */
+
+        const sections =
+            document.querySelectorAll("section[id]");
+
+        const navigation =
+            document.querySelectorAll(".nav-links a");
+
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const top =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= top) {
+
+                    current =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navigation.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================================================
+           THEME: saved preference, system fallback, accessible state
+        ========================================================= */
+        const themeToggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+        const themeStorageKey = "henufy-theme";
+        const systemTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+
+        function applyTheme(theme, persist = false) {
+            const dark = theme === "dark";
+            root.setAttribute("data-theme", dark ? "dark" : "light");
+            if (themeToggle) {
+                themeToggle.textContent = dark ? "☀" : "☾";
+                themeToggle.setAttribute("aria-pressed", String(dark));
+                themeToggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+                themeToggle.title = dark ? "Switch to light theme" : "Switch to dark theme";
+            }
+            const themeColor = document.querySelector('meta[name="theme-color"]');
+            if (themeColor) themeColor.setAttribute("content", dark ? "#100b19" : "#23005b");
+            if (persist) {
+                try { localStorage.setItem(themeStorageKey, dark ? "dark" : "light"); } catch (_) { /* storage may be blocked */ }
+            }
+        }
+
+        let preferredTheme = null;
+        try { preferredTheme = localStorage.getItem(themeStorageKey); } catch (_) { /* storage may be blocked */ }
+        applyTheme(preferredTheme === "dark" || preferredTheme === "light"
+            ? preferredTheme
+            : (systemTheme && systemTheme.matches ? "dark" : "light"));
+
+        // Keep following the operating-system theme until the visitor chooses manually.
+        if (!preferredTheme && systemTheme) {
+            const followSystemTheme = event => applyTheme(event.matches ? "dark" : "light");
+            if (typeof systemTheme.addEventListener === "function") systemTheme.addEventListener("change", followSystemTheme);
+            else if (typeof systemTheme.addListener === "function") systemTheme.addListener(followSystemTheme);
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                const current = root.getAttribute("data-theme") || "light";
+                applyTheme(current === "dark" ? "light" : "dark", true);
+            });
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        if ("IntersectionObserver" in window) {
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: .12 });
+
+            revealElements.forEach(element => revealObserver.observe(element));
+        } else {
+            revealElements.forEach(element => element.classList.add("visible"));
+        }
+
+
+        /* =========================================================
+           SERVICE FILTER
+        ========================================================= */
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const serviceCards =
+            document.querySelectorAll(".service-card");
+
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                filterButtons.forEach(btn => {
+
+                    btn.classList.remove("active");
+
+                });
+
+                button.classList.add("active");
+
+
+                const filter =
+                    button.dataset.filter;
+
+
+                serviceCards.forEach(card => {
+
+                    const category =
+                        card.dataset.category;
+
+
+                    if (
+                        filter === "all" ||
+                        category === filter
+                    ) {
+
+                        card.classList.remove(
+                            "hidden"
+                        );
+
+                    } else {
+
+                        card.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        const faqItems =
+            document.querySelectorAll(
+                ".faq-item"
+            );
+
+
+        faqItems.forEach(item => {
+
+            const question =
+                item.querySelector(
+                    ".faq-question"
+                );
+
+            const answer =
+                item.querySelector(
+                    ".faq-answer"
+                );
+
+
+            if (!question || !answer) return;
+
+            question.addEventListener(
+                "click",
+                () => {
+
+                    const isOpen =
+                        item.classList.contains(
+                            "open"
+                        );
+
+
+                    faqItems.forEach(other => {
+
+                        other.classList.remove(
+                            "open"
+                        );
+
+                        other.querySelector(
+                            ".faq-answer"
+                        ).style.maxHeight =
+                            null;
+                        other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+
+                    });
+
+
+                    if (!isOpen) {
+
+                        item.classList.add(
+                            "open"
+                        );
+
+                        answer.style.maxHeight =
+                            answer.scrollHeight +
+                            "px";
+                        question.setAttribute("aria-expanded", "true");
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =========================================================
+           CONTACT FORM
+        ========================================================= */
+
+        const contactForm =
+            document.getElementById(
+                "contactForm"
+            );
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+
+        contactForm?.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    )?.value.trim() || "";
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    )?.value.trim() || "";
+
+                const phone = document.getElementById("phone")?.value.trim() || "Not provided";
+
+                const service =
+                    document.getElementById(
+                        "service"
+                    )?.value || "";
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    )?.value.trim() || "";
+
+
+                if (
+                    !name ||
+                    !email ||
+                    !message
+                ) {
+
+                    showToast(
+                        "Please complete the required fields."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Prepare a prefilled email for the visitor to review and send. */
+
+
+                const subject =
+                    encodeURIComponent(
+                        "New Project Enquiry - Henufy"
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+                        `Name: ${name}
+
+Email: ${email}
+Phone: ${phone}
+
+Service: ${service || "Not specified"}
+
+Project Details:
+${message}`
+                    );
+
+
+                const mailto =
+                    `mailto:contact@henufy.com?subject=${subject}&body=${body}`;
+
+
+                window.location.href =
+                    mailto;
+
+
+                showToast(
+                    "Opening your email application..."
+                );
+
+            }
+        );
+
+
+        function showToast(message) {
+
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add("show");
+
+
+            setTimeout(() => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            }, 3500);
+
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        backTop?.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================================
+           IMAGE ERROR FALLBACK
+        ========================================================= */
+
+        document.querySelectorAll("img")
+            .forEach(image => {
+                if (!image.closest(".logo") && !image.hasAttribute("loading")) {
+                    image.loading = "lazy";
+                }
+                image.decoding = "async";
+                image.addEventListener(
+                    "error",
+                    () => {
+
+                        image.style.display =
+                            "none";
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           YEAR
+        ========================================================= */
+
+        const copyrightText = document.querySelector(".copyright span");
+        if (copyrightText) copyrightText.textContent = `© ${new Date().getFullYear()} Henufy. All rights reserved.`;
+
+    </script>
+<!-- =========================================================
+     STRUCTURED BUSINESS DATA
+========================================================= -->
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+
+    "name": "Henufy",
+
+    "description":
+        "IT Services and IT Consulting",
+
+    "telephone":
+        "+91 8668120970",
+
+    "email":
+        "contact@henufy.com",
+
+    "address": {
+
+        "@type": "PostalAddress",
+
+        "streetAddress":
+            "5/40, North Street",
+
+        "addressLocality":
+            "Inungur",
+
+        "addressRegion":
+            "Tamil Nadu",
+
+        "postalCode":
+            "639110",
+
+        "addressCountry":
+            "IN"
+    }
+
+}
+
+</script>
+</body>
+</html>
